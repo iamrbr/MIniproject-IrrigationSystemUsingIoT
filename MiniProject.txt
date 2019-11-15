@@ -1,0 +1,25 @@
+int sensorPin = A0;
+int sensorValue;  
+int limit = 300;
+
+void setup() {
+ pinMode(A0,INPUT);
+ pinMode(13, OUTPUT);
+ Serial.begin(9600);
+}
+
+void loop() {
+
+ sensorValue = analogRead(sensorPin);
+ Serial.println("Analog Value : ");
+ Serial.println(sensorValue);
+ 
+ if (sensorValue<limit) {
+ digitalWrite(13, LOW);
+ }
+ else {
+ digitalWrite(13, HIGH);
+ }
+ 
+ delay(1000);
+}
